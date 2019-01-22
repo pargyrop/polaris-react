@@ -25,6 +25,7 @@ Use [the changelog guidelines](https://git.io/polaris-changelog-guidelines) to f
 ### Development workflow
 
 - Fixed links to Polaris component pages in story descriptions ([#933](https://github.com/Shopify/polaris-react/pull/933))
+- Added a test that builds polaris for web and polaris-styleguide. This test takes ~20 minutes to run so it's only configured to run for master ([931](https://github.com/Shopify/polaris-react/pull/931))
 
 ### Dependency upgrades
 
