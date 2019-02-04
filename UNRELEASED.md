@@ -17,6 +17,7 @@ Use [the changelog guidelines](https://git.io/polaris-changelog-guidelines) to f
 ### Bug fixes
 
 - Fixed the `DataTable` sort direction not reversing on second sort of the initially sorted column ([#918](https://github.com/Shopify/polaris-react/pull/918)) (thanks [@tabrez96](https://github.com/tabrez96) for the [issue report](https://github.com/Shopify/polaris-react/issues/873))
+- Adjusted top and bottom padding to the header, footer and sections in `Card` to add space between action buttons in the header and footer and the card sections. ([#962](https://github.com/Shopify/polaris-react/pull/962))
 
 ### Documentation
 
