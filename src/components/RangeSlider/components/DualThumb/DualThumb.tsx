@@ -197,7 +197,10 @@ export default class DualThumb extends React.Component<Props, State> {
         >
           <div className={styles.Wrapper} id={id}>
             {prefixMarkup}
-            <div className={trackWrapperClassName}>
+            <div
+              className={trackWrapperClassName}
+              onMouseDown={this.handleMouseDownTrack}
+            >
               <div
                 className={styles.Track}
                 style={cssVars}
@@ -396,6 +399,28 @@ export default class DualThumb extends React.Component<Props, State> {
         },
         this.dispatchValue,
       );
+    }
+  }
+
+  @autobind
+  private handleMouseDownTrack(event: React.MouseEvent) {
+    const clickXPosition = this.actualXPosition(event.clientX);
+    if (event.button !== 0) return;
+
+    const {value} = this.state;
+
+    const distanceFromLowerThumb = Math.abs(value[0] - clickXPosition);
+    const distanceFromUpperThumb = Math.abs(value[1] - clickXPosition);
+
+    if (
+      distanceFromLowerThumb < distanceFromUpperThumb ||
+      distanceFromLowerThumb === distanceFromUpperThumb
+    ) {
+      this.setValue([clickXPosition, value[1]], Control.Lower);
+      registerMouseMoveHandler(this.handleMouseMoveThumbLower);
+    } else if (distanceFromUpperThumb < distanceFromLowerThumb) {
+      this.setValue([value[0], clickXPosition], Control.Upper);
+      registerMouseMoveHandler(this.handleMouseMoveThumbUpper);
     }
   }
 
