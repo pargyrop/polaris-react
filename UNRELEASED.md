@@ -11,6 +11,7 @@ Use [the changelog guidelines](https://git.io/polaris-changelog-guidelines) to f
 ### Enhancements
 
 - Added support for dual values to `RangeSlider` component ([#784](https://github.com/Shopify/polaris-react/pull/784))
+- Removed tip from `RangeSlider` output ([#988](https://github.com/Shopify/polaris-react/pull/988))
 
 ### Bug fixes
 
