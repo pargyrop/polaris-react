@@ -1,18 +1,16 @@
-import merge from 'lodash/merge';
 import {shallow, mount} from 'enzyme';
 import {createPolarisContext, polarisContextTypes} from '@shopify/polaris';
 
 function mergeAppProviderOptions(options) {
   const context = createPolarisContext();
 
-  return merge(
-    {},
-    {
+  return {
+    ...{
       context,
       childContextTypes: polarisContextTypes,
     },
-    options,
-  );
+    ...options,
+  };
 }
 
 export function mountWithAppProvider(node, options) {
